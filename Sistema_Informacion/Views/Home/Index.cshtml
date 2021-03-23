@@ -1,0 +1,177 @@
+﻿@model IEnumerable<Sistema_Informacion.Models.Usuario>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <style type="text/css">
+        .btn{
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">SISTEMA DE INFORMACION</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Entrar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Usuarios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Sena</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Buscar Usuarios" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Buscar</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <p><br />
+        <button type="button" class="btn-light">@Html.ActionLink("Create New", "Create")</button>
+    </p>
+    <table class="table" width="600" align="center">
+        <tr>
+            <th>
+                <p>Documento</p> 
+            </th>
+            <th>
+                Tipo Documento
+            </th>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Celular
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Genero
+            </th>
+            <th>
+                Aprendiz
+            </th>
+            <th>
+                Egresado
+            </th>
+            <th>
+                AreaFormacion
+            </th>
+            <th>
+                Fecha Egresado
+            </th>
+            <th>
+                Direccion
+            </th>
+            <th>
+                Barrio
+            </th>
+            <th>
+                Ciudad
+            </th>
+            <th>
+                Departamento
+            </th>
+            <th>
+                Fecha Registro
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Documento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TipoDocumento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Celular)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Genero)
+                </td>
+                <td>
+
+                    @if ((item.Aprendiz) > 0)
+                    {
+                        <span>Sí</span>
+                    }
+                    else
+                    {
+                        <span>No</span>
+                    }
+                </td>
+                <td>                    
+
+                    @if ((item.Egresado) > 0)
+                    {
+                        <span>Sí</span>
+                    }
+                    else
+                    {
+                        <span>No</span>
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AreaFormacion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaEgresado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Direccion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Barrio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ciudad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Departamento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaRegistro)
+                </td>
+                <td>
+                    <button  type="button" class="btn btn-info">@Html.ActionLink("Edit", "Edit", new { id = item.ID })</button>
+                    <button  type="button" class="btn btn-info">@Html.ActionLink("Details", "Details", new { id = item.ID })</button>
+                    <button  type="button" class="btn btn-danger">@Html.ActionLink("Delete", "Delete", new { id = item.ID })</button> 
+                   
+                </td>
+            </tr>
+        }
+    </table>
+    <form action="/" method="post">
+        <h3 class="text-center">ANDREA LÓPEZ BUENO_23</h3>
+    </form>
+</body>
+</html>
